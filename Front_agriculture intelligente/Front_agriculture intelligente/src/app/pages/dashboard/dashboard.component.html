@@ -1,0 +1,45 @@
+
+<nb-card size="100%" fullWidth>
+  <div class="form-group">
+
+    <nb-select [(selected)]="selectedOption" placeholder="select your Site"  >
+      <nb-option (click)="filter()" *ngFor="let o of options" [value]="o"> {{ o.name }}</nb-option>
+    </nb-select>
+  </div>
+  <nb-tabset fullWidth>
+    <nb-tab tabTitle="Lighting Control">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="row" style="position: center"  *ngFor="let d of filteredOptions">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <h4 style="color: black"> Site: <strong style="color: gray">{{d.name}}</strong></h4>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="row">
+        <div class="col-6 " style="position: center"  *ngFor="let l of d.lignesId">
+          <div class="container">
+            <div class="row">
+              <div class="col-8">
+              <h6 style="color: #3f4fda"> Ligne: {{l.name}}</h6>
+                <h6 style="color: cornflowerblue"> Site: <strong style="color: gray">{{l.siteName}}</strong></h6>
+                <h6 style="color: cornflowerblue"> Lng: <strong style="color: gray">{{l.lng}}</strong></h6>
+                <h6 style="color: cornflowerblue"> Lat: <strong style="color: gray">{{l.lat}}</strong></h6>
+                <h6 style="color: cornflowerblue"> Status:
+                  <ui-switch   size="medium" [(ngModel)]="l.devices[0].state"
+                               (change)="onChange($event,l._id)"   ></ui-switch></h6>
+                <rg-gauge-chart
+                  [canvasWidth]="canvasWidth"
+                  [needleValue]="needleValue"
+                  [centralLabel]="centralLabel"
+                  [options]="optionss"
+                  [name]="name"
+                  [bottomLabel]="bottomLabel"></rg-gauge-chart>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </nb-tab>
+
+  </nb-tabset>
+
+</nb-card>

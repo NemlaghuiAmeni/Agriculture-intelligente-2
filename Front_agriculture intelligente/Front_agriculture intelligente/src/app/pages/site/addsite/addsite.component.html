@@ -1,0 +1,50 @@
+<style>
+  #madiv { position: center}
+  #madiv2 {position: center}
+</style>
+<div class="row">
+  <div >
+    <nb-card fullWidth >
+      <nb-card-header class="table-title">
+        <h2>Add <b>Site</b></h2>
+      </nb-card-header>
+      <nb-card-body>
+        <div id="madiv2">
+          <form (ngSubmit)="onSubmit()" [formGroup]="addForm">
+            <div class="form-group">
+              <input type="text" nbInput formControlName="name" name="name"  placeholder="Site name">&nbsp;&nbsp;
+              <input type="text" formControlName="description" name="description" nbInput  placeholder="Description"> &nbsp;&nbsp;
+
+              <button _ngcontent-csk-c27="" style="border-radius: 24px;" type="submit" nbbutton="" status="success" _nghost-csk-c16="" ng-reflect-status="success" class="appearance-filled size-medium status-success shape-rectangle transitions" aria-disabled="false" tabindex="0">
+                Add
+              </button> &nbsp;&nbsp;
+
+              <button _ngcontent-csk-c27="" style="border-radius: 24px;" type="reset" class="cancel appearance-filled size-medium status-danger shape-rectangle transitions" nbbutton="" status="danger" _nghost-csk-c16="" ng-reflect-status="danger" aria-disabled="false" tabindex="0">
+                Cancel
+              </button>
+            </div>
+
+
+
+          </form> <div id='map' style='width: 900px; height: 600px;' > </div>
+        </div>
+
+
+      </nb-card-body>
+
+
+
+
+
+
+    </nb-card>
+  </div>
+
+
+
+</div>
+
+
+
+
+
